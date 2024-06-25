@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bootstrap": "^5.3.3",
     "pinia": "^2.1.7",
     "steamid-resolver": "^1.3.4",
     "vue": "^3.4.29",
