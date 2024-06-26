@@ -22,7 +22,6 @@ const fetchGameInfo = (gameId) => {
 onMounted(() => {
     fetchGameInfo(props.game.appid);
 });
-
 const playTimeHandler = (time) => {
     console.log(time);
     if (time > 59) {
@@ -64,7 +63,7 @@ const mouseOutHandler = (evt) => {
 <template>
     <div class="card__wrapper" ref="cardRef" @mouseenter="mouseEnterHandler" @mouseout="mouseOutHandler">
         <p class="playtime">{{ playTimeHandler(game.playtime_forever) }}</p>
-        <img class="bg_image" :src="gameInfo.header_image" alt="game image">
+        <img class="bg_image" v-lazy="{src: gameInfo.header_image}" alt="game image">
         <div class="card">
             <div class="blob"></div>
             <div class="fakeblob"></div>
