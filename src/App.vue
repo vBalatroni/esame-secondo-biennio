@@ -13,5 +13,6 @@ import HelloWorld from './components/HelloWorld.vue'
 <style>
   body {
     background: #091833;
+    font-family: "Antonio", cursive;
   }
 </style>
