@@ -26,7 +26,7 @@ const handleSubmit = () => {
     <div class="container">
         <div class="row">
             <div class="col-12 mx-auto my-4 d-flex justify-content-center flex-row">
-                <form @submit.prevent="handleSubmit">
+                <form class="d-flex" @submit.prevent="handleSubmit">
                 <input v-model="searchTerm" type="text" placeholder="Username" />
                 <button type="submit" :disabled="searchTerm.length < 1">Cerca</button>
                 </form>

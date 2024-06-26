@@ -35,7 +35,7 @@ const debug = false;
 
 <template>
   <main>
-    <h1>Steamlker</h1>
+    <h1>Steam</h1>
     <SearchBar/>
     <div v-if="searchedUser.username">
       <GamesList :username="searchedUser.username"/>

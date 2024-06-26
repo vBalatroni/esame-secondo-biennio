@@ -1,18 +1,15 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-
 
 </script>
 
 <template>
-
   <RouterView />
 </template>
 
 <style>
   body {
-    background: #091833;
+    background: rgb(22,30,106);
+background: linear-gradient(90deg, rgba(22,30,106,1) 0%, rgba(31,56,142,1) 50%, rgba(109,48,143,1) 100%);
     font-family: "Antonio", cursive;
   }
 </style>

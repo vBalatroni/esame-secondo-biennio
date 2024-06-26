@@ -58,12 +58,16 @@ const addMoreGames = () => {
 <template>
     <div class="container">
         <h2 class="mx-auto text-center owner my-4">{{ searchedUser.username }}'s library</h2>
-        <div class="row">
-            <div class="col-8 text-start">
-                <button @click="filterByPlaytime">Sort by playtime</button>
-                <button class="ms-4" @click="removeNeverPlayed">Remove never played</button>
+        <div class="row justify-content-center">
+            <div class="col-12 row col-lg-6 text-start d-flex my-lg-0 my-4 flex-row justify-content-center">
+                <div class="col-12  col-lg-6">
+                    <button class="w-100 mb-4 mb-lg-0" @click="filterByPlaytime">Sort by playtime</button>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <button class=" w-100" @click="removeNeverPlayed">Remove never played</button>
+                </div>
             </div>
-            <div class="col-4 text-end games">
+            <div class="col-12 col-lg-6 text-end games px-4 px-lg-3">
                 {{ searchedUser.gameLibrary.games?.length }} Games
             </div>
         </div>
@@ -73,15 +77,15 @@ const addMoreGames = () => {
         </div>
 
         <div class="row" v-else>
-            <div class="col-12">
-                <div class="row boxes">
-                    <div class="col-lg-4 col-md-6 col-sm-12 my-4 game__preview" v-for="game in searchedUser.gameLibrary.games?.slice(0, 6 + addMoreCounter)" :key="game.appid">
+            <div class="col-12 px-4 px-lg-4">
+                <div class="row boxes ">
+                    <div class="col-lg-4 col-lg-6 col-sm-12 my-4 game__preview" v-for="game in searchedUser.gameLibrary.games?.slice(0, 6 + addMoreCounter)" :key="game.appid">
                         <RouterLink :to="{ name: 'game', params: { id: game.appid }}">
                             <Game :game="game"/>
                         </RouterLink>
                     </div>
                 </div>
-                <div class="text-center mt-5">
+                <div class="text-center mb-4">
                     <button @click="addMoreGames">Load More</button>
                 </div>
             </div>
@@ -107,7 +111,9 @@ button {
     border: 2px solid #ff6643;
     background: transparent;
     color: white;
-    font-weight: 900;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.5rem;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;

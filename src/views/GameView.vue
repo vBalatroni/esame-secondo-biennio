@@ -36,8 +36,10 @@ onMounted(() => {
         </div>
 
     
-        <div class="mx-5 description">
-            <p><span style="" v-html="gameInfo.detailed_description"></span></p>
+        <div class="description__wrapper mx-5 px-0">
+            <div class="description">
+                <p><span style="" v-html="gameInfo.detailed_description"></span></p>
+            </div>
         </div>
       
             
@@ -77,6 +79,9 @@ p {
 }
 .slider {
     
+}
+a {
+    color   : white !important;    
 }
 .os {
     padding-left: 2rem;
@@ -126,12 +131,17 @@ img {
     width: 100% !important;
 }
 
+.description__wrapper {
+    
+}
 .description {
     padding: 2rem;
     border-radius: 10px;
+    color: white;
     border: 2px solid #fff;
-    background: rgb(211,106,13);
-    background: linear-gradient(90deg, rgba(211,106,13,0.6503195028011204) 11%, rgba(211,146,13,0.840795693277311) 50%, rgba(211,106,13,0.6391150210084033) 95%);
+        background-blend-mode:multiply;
+    background: #313131;
+
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.5;
