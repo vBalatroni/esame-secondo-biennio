@@ -6,7 +6,6 @@ import { useRoute } from 'vue-router'
 const route = useRoute();
 const queryChanged = ref(Boolean);
 const searchedUser = ref('');
-// const searchedUser = useUserStore()
 const siteName = import.meta.env.VITE_SITE_NAME;
 onMounted(() => {
   if (route.query.username) {

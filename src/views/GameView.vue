@@ -3,7 +3,6 @@ import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { VueMarqueeSlider } from 'vue3-marquee-slider';
 import '/node_modules/vue3-marquee-slider/dist/style.css';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 const route = useRoute();
 const gameInfo = ref({});
 const router = useRouter();
