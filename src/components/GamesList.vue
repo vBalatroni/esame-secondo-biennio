@@ -85,7 +85,7 @@ const addMoreGames = () => {
                         </RouterLink>
                     </div>
                 </div>
-                <div class="text-center mb-4">
+                <div class="text-center my-4">
                     <button @click="addMoreGames">Load More</button>
                 </div>
             </div>
