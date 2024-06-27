@@ -9,7 +9,7 @@ const route = useRoute();
 const queryChanged = ref(Boolean);
 const searchedUser = ref('');
 // const searchedUser = useUserStore()
-
+const siteName = import.meta.env.VITE_SITE_NAME;
 onMounted(() => {
   if (route.query.username) {
     searchedUser.value = route.query;
@@ -30,12 +30,13 @@ watch(
    
   }
 );
+
 const debug = false;
 </script>
 
 <template>
   <main>
-    <h1>Steam</h1>
+    <h1>{{siteName}}</h1>
     <SearchBar/>
     <div v-if="searchedUser.username">
       <GamesList :username="searchedUser.username"/>

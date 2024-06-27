@@ -24,7 +24,7 @@ onMounted(() => {
 <template>
     <div class="container-fluid my-5" v-if="Object.keys(gameInfo).length > 0">
         <div class="d-flex flex-row align-items-baseline">
-            <h1  class=" mx-5 mb-5">{{ gameInfo.name }}</h1>
+            <h1  class=" mx-5 mb-4">{{ gameInfo.name }}</h1>
             
             <a v-if="gameInfo.website" class=" website" :href="gameInfo.website">Website</a>
         </div>

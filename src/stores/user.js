@@ -3,10 +3,11 @@ import { defineStore } from 'pinia'
 export const useUserStore = defineStore('user', () => {
     const username = ref('')
     const userId = ref('')
-    const steamApiKey = 'E939381B29D7436FBA32224188468DE7';
+    // const steamApiKey = import.meta.env.VITE_SITE_NAME;
+    // console.log('steamapikey: ' + steamApiKey);
     const gameLibrary = ref({});
     const error = ref('');
-    function fetchSteamUserId(searchedUsername) {
+    function fetchSteamUserId(searchedUsername, steamApiKey) {
         const apiUrl = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${steamApiKey}&vanityurl=${searchedUsername}`;
         // console.log('apirrl: ' + apiUrl)
 
@@ -36,7 +37,7 @@ export const useUserStore = defineStore('user', () => {
         
     };
     
-    function fetchOwnedGames(username){
+    function fetchOwnedGames(username, steamApiKey){
         const apiUrl = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${steamApiKey}&steamid=${userId.value}&format=json&include_appinfo=true`
         // console.log('apiurl: ' + apiUrl)
         fetch(apiUrl)

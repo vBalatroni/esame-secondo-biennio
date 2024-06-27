@@ -14,10 +14,10 @@ const props = defineProps({
 const fetchUserData = (username) => {
     console.log('Fetching data for user:', username);
     isLoading.value = true;
-    searchedUser.fetchSteamUserId(username)
+    searchedUser.fetchSteamUserId(username,import.meta.env.VITE_STEAM_API_KEY)
         .then(() => {
             console.log('The steamID for', username, 'is', searchedUser.userId);
-            return searchedUser.fetchOwnedGames(searchedUser.userId);
+            return searchedUser.fetchOwnedGames(searchedUser.userId, import.meta.env.VITE_STEAM_API_KEY);
         })
         .then(() => {
             console.log('The games for', username, 'are', searchedUser.gameLibrary.games);
