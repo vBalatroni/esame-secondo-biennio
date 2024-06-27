@@ -79,7 +79,7 @@ const addMoreGames = () => {
         <div class="row" v-else>
             <div class="col-12 px-4 px-lg-4">
                 <div class="row boxes ">
-                    <div class="col-lg-4 col-lg-6 col-sm-12 my-4 game__preview" v-for="game in searchedUser.gameLibrary.games?.slice(0, 6 + addMoreCounter)" :key="game.appid">
+                    <div class="col-md-6 col-lg-4 col-sm-12 my-4 game__preview" v-for="game in searchedUser.gameLibrary.games?.slice(0, 6 + addMoreCounter)" :key="game.appid">
                         <RouterLink :to="{ name: 'game', params: { id: game.appid }}">
                             <Game :game="game"/>
                         </RouterLink>

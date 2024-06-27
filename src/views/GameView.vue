@@ -32,7 +32,7 @@ onMounted(() => {
             <img v-if="false" :src="gameInfo.header_image" alt="game image" class="mx-5" />
         </div>
         <div class="d-flex flex-row justify-content-start mx-5 mb-5 price">
-            <small :if="gameInfo.price_overview.final_formatted" >{{ gameInfo.price_overview?.final_formatted }}</small>
+            <small :if="gameInfo.price_overview?.final_formatted" >{{ gameInfo.price_overview?.final_formatted }}</small>
         </div>
 
     
