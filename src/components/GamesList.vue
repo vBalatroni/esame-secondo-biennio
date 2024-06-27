@@ -56,9 +56,9 @@ const addMoreGames = () => {
 </script>
 
 <template>
-    <div class="container">
-        <h2 class="mx-auto text-center owner my-4">{{ searchedUser.username }}'s library</h2>
-        <div class="row justify-content-center">
+    <div v-if=" searchedUser.userId" class="container">
+        <h2 class="mx-auto text-center owner mt-4 mb-4 mb-lg-5 "><span class="current_user">{{ searchedUser.username }}</span><span class="label-user"> 's library</span></h2>
+        <div class="row justify-content-center align-items-baseline my-4">
             <div class="col-12 row col-lg-6 text-start d-flex my-lg-0 my-4 flex-row justify-content-center">
                 <div class="col-12  col-lg-6">
                     <button class="w-100 mb-4 mb-lg-0" @click="filterByPlaytime">Sort by playtime</button>
@@ -67,7 +67,7 @@ const addMoreGames = () => {
                     <button class=" w-100" @click="removeNeverPlayed">Remove never played</button>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 text-end games px-4 px-lg-3">
+            <div class="col-12 col-lg-6 text-center text-lg-end games px-4 px-lg-3 mt-3 mt-lg-0">
                 {{ searchedUser.gameLibrary.games?.length }} Games
             </div>
         </div>
@@ -91,6 +91,9 @@ const addMoreGames = () => {
             </div>
         </div>
     </div>
+    <div v-else>
+        <h2 class="mx-auto text-center owner my-4">{{ searchedUser.error }}</h2>
+    </div>
 </template>
 
 <style>
@@ -99,11 +102,19 @@ a {
 }
 
 
+.current_user {
+    color: #ff6433;
+    font-weight: 700;
+}
+
+.label-user {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
 
 .owner {
     color: white;
     font-size: 2rem;
-    margin-top: 2rem;
 }
 
 button {

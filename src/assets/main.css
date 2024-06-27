@@ -1,4 +1,4 @@
 @import './base.css';
 @import 'bootstrap/dist/css/bootstrap.css';
-@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Rokkitt:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700');
 @import 'vue3-carousel/dist/carousel.css'

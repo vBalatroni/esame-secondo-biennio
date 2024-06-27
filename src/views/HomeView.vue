@@ -1,10 +1,8 @@
 <script setup>
 import SearchBar from '../components/SearchBar.vue'
 import GamesList from '../components/GamesList.vue'
-import { useUserStore } from '@/stores/user'
 import { watch, ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router'
-import router from '@/router';
 const route = useRoute();
 const queryChanged = ref(Boolean);
 const searchedUser = ref('');
@@ -35,12 +33,13 @@ const debug = false;
 </script>
 
 <template>
-  <main>
+  <main class="mx-1 mx-md-5 mt-5">
     <h1>{{siteName}}</h1>
     <SearchBar/>
     <div v-if="searchedUser.username">
       <GamesList :username="searchedUser.username"/>
     </div>
+
   </main>
 </template>
 <style scoped>

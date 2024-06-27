@@ -1,11 +1,12 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import { VueMarqueeSlider } from 'vue3-marquee-slider';
-import '/node_modules/vue3-marquee-slider/dist/style.css'
+import '/node_modules/vue3-marquee-slider/dist/style.css';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 const route = useRoute();
 const gameInfo = ref({});
-
+const router = useRouter();
 const fetchGameInfo = (gameId) => {
     fetch(`https://store.steampowered.com/api/appdetails?appids=${gameId}`)
         .then(response => response.json())
@@ -19,14 +20,19 @@ const fetchGameInfo = (gameId) => {
 onMounted(() => {
     fetchGameInfo(route.params.id);
 });
+
+const goBack = () => {
+    router.go(-1);
+};
 </script>
 
 <template>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <div class="container-fluid my-5" v-if="Object.keys(gameInfo).length > 0">
-        <div class="d-flex flex-row align-items-baseline">
-            <h1  class=" mx-5 mb-4">{{ gameInfo.name }}</h1>
-            
-            <a v-if="gameInfo.website" class=" website" :href="gameInfo.website">Website</a>
+        <div class="mx-5 back button mb-4"><button type="submit" @click="goBack()">←</button></div>
+        <div class="mx-5 mb-4">
+            <h1>{{ gameInfo.name }}</h1>
+            <a v-if="gameInfo.website" target="_blank" class=" website mt-5" :href="gameInfo.website">{{gameInfo.website}}</a>
         </div>
         <div>
             <img v-if="false" :src="gameInfo.header_image" alt="game image" class="mx-5" />
@@ -72,13 +78,16 @@ onMounted(() => {
 img {
     width: 100% !important;
     border-radius: 10px !important;
-
+    max-width: -webkit-fill-available !important;
 }
 p {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
-.slider {
-    
+
+.website {
+    text-decoration: 1px solid white underline;
+    font-size: 1.5rem;
+    padding-top: 4rem;
 }
 a {
     color   : white !important;    
